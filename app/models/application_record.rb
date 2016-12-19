@@ -1,6 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   def to_param
-    title
+    "#{id}-#{title}"
   end
   self.abstract_class = true
 end
