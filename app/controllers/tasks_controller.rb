@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  add_breadcrumb "Home", :root_path
   skip_before_action :verify_authenticity_token
   before_action :find_task, only: [:show, :edit, :update, :destroy]
 
@@ -7,10 +8,12 @@ class TasksController < ApplicationController
   end
 
   def show
+    add_breadcrumb "Show", :task_path
   end
 
   def new
     @task = Task.new
+    add_breadcrumb "New", :new_task_path
   end
 
   def create
@@ -24,6 +27,8 @@ class TasksController < ApplicationController
   end
 
   def edit
+    add_breadcrumb "Show", :task_path
+    add_breadcrumb "Edit", :edit_task_path
   end
 
   def update
