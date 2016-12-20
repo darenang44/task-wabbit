@@ -1,4 +1,7 @@
 <%= simple_form_for @task do |f| %>
+  <!-- f.collection_select goes through the list of all the categories (:id and :names) that have been made
+       then it prompts us to choose a category if we hadnt picked one already -->
+  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Pick A Category" }  %>
   <%= f.input :title, label: "Task Title" %>
   <%= f.input :description, label: "Task Description"  %>
   <%= f.input :company, label: "Your Company" %>
